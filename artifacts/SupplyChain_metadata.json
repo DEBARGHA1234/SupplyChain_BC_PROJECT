@@ -1,0 +1,323 @@
+{
+	"compiler": {
+		"version": "0.8.34+commit.80d5c536"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "manufacturer",
+						"type": "address"
+					}
+				],
+				"name": "ProductCreated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "enum SupplyChain.Status",
+						"name": "status",
+						"type": "uint8"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "location",
+						"type": "string"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "updatedBy",
+						"type": "address"
+					}
+				],
+				"name": "StatusUpdated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "enum SupplyChain.Role",
+						"name": "role",
+						"type": "uint8"
+					}
+				],
+				"name": "UserRegistered",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_description",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_initialLocation",
+						"type": "string"
+					}
+				],
+				"name": "createProduct",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_id",
+						"type": "uint256"
+					}
+				],
+				"name": "getProduct",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "description",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "manufacturer",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "supplier",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "deliveryPerson",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "customer",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "currentOwner",
+						"type": "address"
+					},
+					{
+						"internalType": "enum SupplyChain.Status",
+						"name": "status",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_id",
+						"type": "uint256"
+					}
+				],
+				"name": "getProductHistory",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "location",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "timestamp",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "updatedBy",
+								"type": "address"
+							},
+							{
+								"internalType": "enum SupplyChain.Status",
+								"name": "status",
+								"type": "uint8"
+							}
+						],
+						"internalType": "struct SupplyChain.TrackingStep[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "productCount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "enum SupplyChain.Role",
+						"name": "_role",
+						"type": "uint8"
+					}
+				],
+				"name": "registerUser",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "enum SupplyChain.Status",
+						"name": "_newStatus",
+						"type": "uint8"
+					},
+					{
+						"internalType": "string",
+						"name": "_location",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "_nextOwner",
+						"type": "address"
+					}
+				],
+				"name": "updateStatus",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "userRoles",
+				"outputs": [
+					{
+						"internalType": "enum SupplyChain.Role",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/SupplyChain.sol": "SupplyChain"
+		},
+		"evmVersion": "osaka",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/SupplyChain.sol": {
+			"keccak256": "0x4f288b1fe6e3cf70f45c971555c65629ff48be6a8f54c9a11b5b084d9be2d6b0",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e16da7bb4cc535b59243b27cc446a34c15b991582affa332cc1093ca1faeef64",
+				"dweb:/ipfs/QmQFbJkGkp9NcAPHfZynDPKGFhGi1xfecMcJPM6W61U5Zz"
+			]
+		}
+	},
+	"version": 1
+}
